@@ -212,3 +212,21 @@ String names[]={“Raj”,”ravi”,”Akash”,”ajay”};
 
 Hint : compareTo() methods or any other ways.
 
+### [Assignment 8](https://github.com/jayasaipamidimarri/JFSAssignments/tree/main/Java/Comparator)
+                -Comparator 
+
+Employee - id,name,salary 
+		
+		Sorting by Id Asc, Desc 
+		Sorting by Name Asc, Desc
+		Sorting by Salary Asc, Desc 
+Write Sample example to sort by Id, Name or Salary option takes through keyboards. 
+
+
+Sort by what 
+		Id
+			Asc /Desc 
+		Name
+			Asc /Desc
+		Salary 	
+			Asc/Desc 
