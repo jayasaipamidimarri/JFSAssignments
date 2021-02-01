@@ -4,7 +4,7 @@
 
 
 
-### [Java Assignment  1](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Onlineexam.java)
+### [Java Assignment  1](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Onlineexam.java)
                -Onlineexam.java
 do{
            Online Examination 
@@ -28,7 +28,7 @@ Result 		g_total > 70
 Result>=90 selected else try next time. 
 
 
-### [Java Assignment 2](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Employeesalary.java)
+### [Java Assignment 2](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Employeesalary.java)
                   -Employeesalary.java
 
 Take n number records through keyboards as Id,Name,Salary,Desg  
@@ -48,7 +48,7 @@ Else
  
 Id, name, salary( grossSalary +bonus ) and desg 
 
-### [Java Assignment 3](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Employeesalaryf.java)
+### [Java Assignment 3](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Employeesalaryf.java)
                     -Employeesalaryf.java
 
 Create EmployeeDetails class with 4 instance array variables. 
@@ -84,7 +84,7 @@ Else
  
 Id, name, salary( grossSalary +bonus ) and desg 
 
-### [Java Assignment 4](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Employeetest.java)
+### [Java Assignment 4](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Employeetest.java)
 		    -Employeetest.java
 		    
 Manager / Programmer is a Employee
@@ -186,6 +186,22 @@ StudentTest
 	{
 		std[i].display();
 	}
+
+### [Assignment 6:]()
+
+First Change 
+
+Create user-defined exception 
+
+1.	MinimumAccountBalance
+2.	InValidAccountNumber 	(Transfer, Withdraw, deposit) 
+
+Second Changes :  	you have to use package concept. 
+		Account		 bean package 
+		AccountInitialization,  service package 
+		Bank 			 service package 
+		MyBank 		 service package 
+		BankTest 		 main / test package 
 
 ###  [Assignment 7](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Stringsort.java)
 Take n number of names through keywords and display those names in ascending or descending order. (Ignore case sensitive). 
