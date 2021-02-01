@@ -4,7 +4,7 @@
 
 
 
-### [Java Assignment  1](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Onlineexam.java)
+### [Java Assignment  1](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Onlineexam.java)
                -Onlineexam.java
 do{
            Online Examination 
