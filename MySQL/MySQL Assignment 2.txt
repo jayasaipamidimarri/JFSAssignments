@@ -1,0 +1,387 @@
+12/01/2020
+
+DML Operation 
+
+1. Change salary of employee 115 to 8000 if the existing salary is less than 6000.
+
+update employees set salary=8000 where employee_id=115 and salary<6000;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+2. Insert a new employee into employees with all the required details.
+
+insert into employees values(99,"Jaya Sai","Pamidimarri","pjssgk",'767.192.2818','1999-08-24','IT_PROG',15000,0.5,99,60);
+Query OK, 1 row affected (0.02 sec)
+
+
+3. Delete department 20.
+
+unable to as department_id is foriegn key
+
+4. Change job ID of employee 110 to IT_PROG if the employee belongs to department 10 and the existing job ID does not start with IT.
+
+update employees set job_id='IT_PROG' where employee_id=110 and department_id=10 and not job_id like "IT%";
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+5. Insert a row into departments table with manager ID 120 and location ID in any location ID for city Tokyo.
+
+insert into departments values(33,'navy',120,1300);
+Query OK, 1 row affected (0.00 sec)
+
+6. Display job title, employee ID, number of days between ending date and starting date for all jobs in department 30 from job history.
+
+select job_title,employee_id,datediff(start_date,end_date) from jobs j,job_history jh where j.job_id=jh.job_id and department_id=30;
+Empty set (0.00 sec)
+		
+DDL Assignments  with Constraints 
+		
+1.Table ---> Customer 
+	custId, firstName,lastName,age,city, mobileNumber, dob
+		Add the Constraints 
+		custId is Primary Key 
+		firstName not null
+		age must be greater than 21
+		mobile must be unique  
+
+1.CREATE TABLE customer(custid VARCHAR(6),fname VARCHAR(30) not null,ltname VARCHAR(30),city VARCHAR(15),mobileno VARCHAR(10) unique,age varchar(10) check(age>21) ,dob DATE,CONSTRAINT customer_custid_pk PRIMARY KEY(custid));
+Query OK, 0 rows affected (0.09 sec)
+
+desc customer;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| custid   | varchar(6)  | NO   | PRI | NULL    |       |
+| fname    | varchar(30) | NO   |     | NULL    |       |
+| ltname   | varchar(30) | YES  |     | NULL    |       |
+| city     | varchar(15) | YES  |     | NULL    |       |
+| mobileno | varchar(10) | YES  | UNI | NULL    |       |
+| age      | varchar(10) | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.03 sec)
+
+
+2.Table ----> Branch 
+		branchId, branchName, city 
+		Add the Constraints 
+		branchId is Primary Key 
+		branchName not null
+		city not null	
+2.create table branch(branch_id varchar(6)primary key,branch_name varchar(30) not null,branch_city varchar(30) not null);
+Query OK, 0 rows affected (0.05 sec)
+
+desc branch;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| branch_id   | varchar(6)  | NO   | PRI | NULL    |       |
+| branch_name | varchar(30) | NO   |     | NULL    |       |
+| branch_city | varchar(30) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
+3.Table -----> Account 
+		accountNumber, openingBalance, typeOfAccount, status,BankId,CustId
+		Add the Constraints 
+		accountNumber is primary key 
+		openingBalance must be greater than 5000
+		typeOfAccount must be saving/current
+		BankId is foreign key refer to BranchId(Primary key) Branch table 
+		CustId is foreign key refer to Customer(Primary key) Customer table 	
+
+3.CREATE TABLE account(acnumber VARCHAR(6),custid  VARCHAR(6),bid VARCHAR(6),opening_balance INT(7),aod DATE,atype VARCHAR(10),astatus VARCHAR(10),CONSTRAINT account_acnumber_pk PRIMARY KEY(acnumber),CONSTRAINT account_custid_fk FOREIGN KEY(custid) REFERENCES customer(custid));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+desc account;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| acnumber        | varchar(6)  | NO   | PRI | NULL    |       |
+| custid          | varchar(6)  | YES  | MUL | NULL    |       |
+| bid             | varchar(6)  | YES  |     | NULL    |       |
+| opening_balance | int         | YES  |     | NULL    |       |
+| aod             | date        | YES  |     | NULL    |       |
+| atype           | varchar(10) | YES  |     | NULL    |       |
+| astatus         | varchar(10) | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+4.Table ----> Transaction 
+		transactionId, transactionDate, MediumOfTransaction, TransactionAmount 
+		Add the Constraints 
+		transactionId is primary key 		
+
+4.create table transaction(transaction_id int primary key, transaction_date date, medium_of_transaction varchar(20), transaction_amount int);
+Query OK, 0 rows affected (0.02 sec)
+
+desc transaction;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| transaction_id        | int         | NO   | PRI | NULL    |       |
+| transaction_date      | date        | YES  |     | NULL    |       |
+| medium_of_transaction | varchar(20) | YES  |     | NULL    |       |
+| transaction_amount    | int         | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+
+5.Table ----> Loan 
+		LoanId, loanAmount, customerId and bankdId 
+		Add the Constraints 
+		loadId is primary key 
+		loanAmount must be +ve 
+		BankId is foreign key refer to BranchId(Primary key) Branch table
+
+
+5.create table loan(loan_id int primary key,loan_amount int check(loan_amount>0),customer_id int,bank_id varchar(10),foreign key(bank_id) references branch(branch_id));
+Query OK, 0 rows affected (0.02 sec)
+
+desc loan;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| loan_id     | int         | NO   | PRI | NULL    |       |
+| loan_amount | int         | YES  |     | NULL    |       |
+| customer_id | int         | YES  |     | NULL    |       |
+| bank_id     | varchar(10) | YES  | MUL | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+
+
+Sub Query 
+
+1. Display details of departments managed by ‘John’.
+
+select * from departments where manager_id in (select employee_id from employees where first_name='john');
++---------------+-----------------+------------+-------------+
+| department_id | department_name | manager_id | location_id |
++---------------+-----------------+------------+-------------+
+|            80 | Sales           |        145 |        2500 |
++---------------+-----------------+------------+-------------+
+1 row in set (0.00 sec)
+
+
+2. Display employees who did not do any job in the past.
+
+select first_name from employees where employee_id not in (select employee_id from job_history);
++-------------+
+| first_name  |
++-------------+
+| Jaya Sai    |
+| Steven      |
+| Alexander   |
+| Bruce       |
+| David       |
+| Valli       |
+| Diana       |
+| Nancy       |
+| Daniel      |
+| John        |
+| Ismael      |
+| Jose Manuel |
+| Luis        |
+| Alexander   |
+| Shelli      |
+| Sigal       |
+| Guy         |
+| Karen       |
+| Matthew     |
+| Adam        |
+| Shanta      |
+| Kevin       |
+| Julia       |
+| Irene       |
+| James       |
+| Steven      |
+| Laura       |
+| Mozhe       |
+| James       |
+| TJ          |
+| Jason       |
+| Michael     |
+| Ki          |
+| Hazel       |
+| Renske      |
+| Stephen     |
+| John        |
+| Joshua      |
+| Trenna      |
+| Curtis      |
+| Randall     |
+| Peter       |
+| John        |
+| Karen       |
+| Alberto     |
+| Gerald      |
+| Eleni       |
+| Peter       |
+| David       |
+| Peter       |
+| Christopher |
+| Nanette     |
+| Oliver      |
+| Janette     |
+| Patrick     |
+| Allan       |
+| Lindsey     |
+| Louise      |
+| Sarath      |
+| Clara       |
+| Danielle    |
+| Mattea      |
+| David       |
+| Sundar      |
+| Amit        |
+| Lisa        |
+| Harrison    |
+| Tayler      |
+| William     |
+| Elizabeth   |
+| Sundita     |
+| Ellen       |
+| Alyssa      |
+| Jack        |
+| Kimberely   |
+| Charles     |
+| Winston     |
+| Jean        |
+| Martha      |
+| Girard      |
+| Nandita     |
+| Alexis      |
+| Julia       |
+| Anthony     |
+| Kelly       |
+| Jennifer    |
+| Timothy     |
+| Randall     |
+| Sarah       |
+| Britney     |
+| Samuel      |
+| Vance       |
+| Alana       |
+| Kevin       |
+| Donald      |
+| Douglas     |
+| Pat         |
+| Susan       |
+| Hermann     |
+| Shelley     |
+| William     |
++-------------+
+101 rows in set (0.00 sec)
+
+
+3. Display job title and average salary for employees who did a job in the past.
+
+select job_title,avg(salary) from employees e inner join jobs j on e.job_id=j.job_id group by job_title;
++---------------------------------+-------------+
+| job_title                       | avg(salary) |
++---------------------------------+-------------+
+| Public Accountant               |        8300 |
+| Accounting Manager              |       12000 |
+| Administration Assistant        |        4400 |
+| President                       |       24000 |
+| Administration Vice President   |       17000 |
+| Accountant                      |        7920 |
+| Finance Manager                 |       12000 |
+| Human Resources Representative  |        6500 |
+| Programmer                      |        7300 |
+| Marketing Manager               |       13000 |
+| Marketing Representative        |        6000 |
+| Public Relations Representative |       10000 |
+| Purchasing Clerk                |        3760 |
+| Purchasing Manager              |       11000 |
+| Sales Manager                   |       12200 |
+| Sales Representative            |        8350 |
+| Shipping Clerk                  |        3215 |
+| Stock Clerk                     |        2785 |
+| Stock Manager                   |        7280 |
++---------------------------------+-------------+
+19 rows in set (0.00 sec)
+
+
+4. Display country name, city, and number of departments where department has more than 5 employees.
+
+select country_name,city, count(department_id) as num_of_depts from countries join locations using (country_id) join departments using (location_id) where department_id in (select department_id from employees group by department_id having count(department_id)>5) group by country_name,city;
++--------------------------+---------------------+--------------+
+| country_name             | city                | num_of_depts |
++--------------------------+---------------------+--------------+
+| United States of America | Southlake           |            1 |
+| United States of America | South San Francisco |            1 |
+| United States of America | Seattle             |            2 |
+| United Kingdom           | Oxford              |            1 |
++--------------------------+---------------------+--------------+
+4 rows in set (0.00 sec)
+
+
+5. Display details of manager who manages more than 5 employees.
+
+select distinct manager_id,count(employee_id) as No_of_Employees from employees group by department_id, manager_id having count(employee_id) >4;
++------------+-----------------+
+| manager_id | No_of_Employees |
++------------+-----------------+
+|        100 |               5 |
+|        108 |               5 |
+|        114 |               5 |
+|        120 |               8 |
+|        121 |               8 |
+|        122 |               8 |
+|        123 |               8 |
+|        124 |               8 |
+|        145 |               6 |
+|        146 |               6 |
+|        147 |               6 |
+|        148 |               6 |
+|        149 |               5 |
++------------+-----------------+
+13 rows in set (0.00 sec)
+
+6. Display details of current job for employees who worked as IT Programmers in the past.
+
+
+select job_title as Past_Job_Title from jobs where job_id in(select job_id from employees where employee_id in(select employee_id from departments d inner join job_history jh where jh.department_id=d.department_id and job_id='IT_PROG')) ;
++-------------------------------+
+| Past_Job_Title                |
++-------------------------------+
+| Administration Vice President |
++-------------------------------+
+1 row in set (0.00 sec)
+
+
+7. Display the details of employees drawing the highest salary in the department.
+
+
+select employee_id,first_name,max(salary) from employees group by department_id order by employee_id asc;
++-------------+------------+-------------+
+| employee_id | first_name | max(salary) |
++-------------+------------+-------------+
+|          99 | Jaya Sai   |       15000 |
+|         100 | Steven     |       24000 |
+|         108 | Nancy      |       12000 |
+|         114 | Den        |       11000 |
+|         120 | Matthew    |        8200 |
+|         145 | John       |       14000 |
+|         178 | Kimberely  |        7000 |
+|         200 | Jennifer   |        4400 |
+|         201 | Michael    |       13000 |
+|         203 | Susan      |        6500 |
+|         204 | Hermann    |       10000 |
+|         205 | Shelley    |       12000 |
++-------------+------------+-------------+
+12 rows in set (0.00 sec)
+
+
+8. Display third highest salary of all employees
+
+select max(salary) from employees group by salary order by salary desc limit 2,1;
++-------------+
+| max(salary) |
++-------------+
+|       15000 |
++-------------+
+1 row in set (0.00 sec)

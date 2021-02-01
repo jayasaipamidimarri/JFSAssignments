@@ -1,0 +1,1190 @@
+Select Clause with Where clause 
+
+1) Display details of jobs where the minimum salary is greater than 10000.
+
+
+select * from jobs where min_salary>10000;
++---------+-------------------------------+------------+------------+
+| job_id  | job_title                     | min_salary | max_salary |
++---------+-------------------------------+------------+------------+
+| AD_PRES | President                     |      20000 |      40000 |
+| AD_VP   | Administration Vice President |      15000 |      30000 |
++---------+-------------------------------+------------+------------+
+2 rows in set (0.00 sec)
+
+
+2) Display the first name and join date of the employees who joined between 2002 and 2005.
+
+
+select first_name,hire_date as Join_date from employees where hire_date between '2002-01-01' and '2005-01-01';
+Empty set (0.00 sec)
+
+
+3) Display first name and join date of the employees who is either IT Programmer or Sales Man.
+
+
+select first_name,hire_date,job_id as Join_Date from employees where job_id like 'IT_PROG' or job_id like 'ST_MAN';
++------------+------------+-----------+
+| first_name | hire_date  | Join_Date |
++------------+------------+-----------+
+| Alexander  | 1990-01-03 | IT_PROG   |
+| Bruce      | 1991-05-21 | IT_PROG   |
+| David      | 1997-06-25 | IT_PROG   |
+| Valli      | 1998-02-05 | IT_PROG   |
+| Diana      | 1999-02-07 | IT_PROG   |
+| Matthew    | 1996-07-18 | ST_MAN    |
+| Adam       | 1997-04-10 | ST_MAN    |
+| Payam      | 1995-05-01 | ST_MAN    |
+| Shanta     | 1997-10-10 | ST_MAN    |
+| Kevin      | 1999-11-16 | ST_MAN    |
++------------+------------+-----------+
+10 rows in set (0.01 sec)
+
+
+4) Display first name, salary, commission pct, and hire date for employees with salary less than 10000.
+
+
+select first_name,salary,commission_pct,hire_date from employees where salary<10000;
++-------------+--------+----------------+------------+
+| first_name  | salary | commission_pct | hire_date  |
++-------------+--------+----------------+------------+
+| Alexander   |   9000 |           NULL | 1990-01-03 |
+| Bruce       |   6000 |           NULL | 1991-05-21 |
+| David       |   4800 |           NULL | 1997-06-25 |
+| Valli       |   4800 |           NULL | 1998-02-05 |
+| Diana       |   4200 |           NULL | 1999-02-07 |
+| Daniel      |   9000 |           NULL | 1994-07-16 |
+| John        |   8200 |           NULL | 1997-09-28 |
+| Ismael      |   7700 |           NULL | 1997-08-30 |
+| Jose Manuel |   7800 |           NULL | 1998-03-07 |
+| Luis        |   6900 |           NULL | 1999-12-07 |
+| Alexander   |   3100 |           NULL | 1995-05-18 |
+| Shelli      |   2900 |           NULL | 1997-12-24 |
+| Sigal       |   2800 |           NULL | 1997-07-24 |
+| Guy         |   2600 |           NULL | 1998-11-15 |
+| Karen       |   2500 |           NULL | 1999-08-10 |
+| Matthew     |   8000 |           NULL | 1996-07-18 |
+| Adam        |   8200 |           NULL | 1997-04-10 |
+| Payam       |   7900 |           NULL | 1995-05-01 |
+| Shanta      |   6500 |           NULL | 1997-10-10 |
+| Kevin       |   5800 |           NULL | 1999-11-16 |
+| Julia       |   3200 |           NULL | 1997-07-16 |
+| Irene       |   2700 |           NULL | 1998-09-28 |
+| James       |   2400 |           NULL | 1999-01-14 |
+| Steven      |   2200 |           NULL | 2000-03-08 |
+| Laura       |   3300 |           NULL | 1997-08-20 |
+| Mozhe       |   2800 |           NULL | 1997-10-30 |
+| James       |   2500 |           NULL | 1997-02-16 |
+| TJ          |   2100 |           NULL | 1999-04-10 |
+| Jason       |   3300 |           NULL | 1996-06-14 |
+| Michael     |   2900 |           NULL | 1998-08-26 |
+| Ki          |   2400 |           NULL | 1999-12-12 |
+| Hazel       |   2200 |           NULL | 2000-02-06 |
+| Renske      |   3600 |           NULL | 1995-07-14 |
+| Stephen     |   3200 |           NULL | 1997-10-26 |
+| John        |   2700 |           NULL | 1998-02-12 |
+| Joshua      |   2500 |           NULL | 1998-04-06 |
+| Trenna      |   3500 |           NULL | 1995-10-17 |
+| Curtis      |   3100 |           NULL | 1997-01-29 |
+| Randall     |   2600 |           NULL | 1998-03-15 |
+| Peter       |   2500 |           NULL | 1998-07-09 |
+| David       |   9500 |           0.25 | 1997-03-24 |
+| Peter       |   9000 |           0.25 | 1997-08-20 |
+| Christopher |   8000 |            0.2 | 1998-03-30 |
+| Nanette     |   7500 |            0.2 | 1998-12-09 |
+| Oliver      |   7000 |           0.15 | 1999-11-23 |
+| Patrick     |   9500 |           0.35 | 1996-03-04 |
+| Allan       |   9000 |           0.35 | 1996-07-01 |
+| Lindsey     |   8000 |            0.3 | 1997-03-10 |
+| Louise      |   7500 |            0.3 | 1997-12-15 |
+| Sarath      |   7000 |           0.25 | 1998-11-03 |
+| Danielle    |   9500 |           0.15 | 1999-03-19 |
+| Mattea      |   7200 |            0.1 | 2000-01-24 |
+| David       |   6800 |            0.1 | 2000-02-23 |
+| Sundar      |   6400 |            0.1 | 2000-03-24 |
+| Amit        |   6200 |            0.1 | 2000-04-21 |
+| Tayler      |   9600 |            0.2 | 1998-01-24 |
+| William     |   7400 |           0.15 | 1999-02-23 |
+| Elizabeth   |   7300 |           0.15 | 1999-03-24 |
+| Sundita     |   6100 |            0.1 | 2000-04-21 |
+| Alyssa      |   8800 |           0.25 | 1997-03-19 |
+| Jonathon    |   8600 |            0.2 | 1998-03-24 |
+| Jack        |   8400 |            0.2 | 1998-04-23 |
+| Kimberely   |   7000 |           0.15 | 1999-05-24 |
+| Charles     |   6200 |            0.1 | 2000-01-04 |
+| Winston     |   3200 |           NULL | 1998-01-24 |
+| Jean        |   3100 |           NULL | 1998-02-23 |
+| Martha      |   2500 |           NULL | 1999-06-21 |
+| Girard      |   2800 |           NULL | 2000-02-03 |
+| Nandita     |   4200 |           NULL | 1996-01-27 |
+| Alexis      |   4100 |           NULL | 1997-02-20 |
+| Julia       |   3400 |           NULL | 1998-06-24 |
+| Anthony     |   3000 |           NULL | 1999-02-07 |
+| Kelly       |   3800 |           NULL | 1997-06-14 |
+| Jennifer    |   3600 |           NULL | 1997-07-13 |
+| Timothy     |   2900 |           NULL | 1998-07-11 |
+| Randall     |   2500 |           NULL | 1999-12-19 |
+| Sarah       |   4000 |           NULL | 1996-02-04 |
+| Britney     |   3900 |           NULL | 1997-03-03 |
+| Samuel      |   3200 |           NULL | 1998-06-01 |
+| Vance       |   2800 |           NULL | 1999-03-17 |
+| Alana       |   3100 |           NULL | 1998-04-24 |
+| Kevin       |   3000 |           NULL | 1998-05-23 |
+| Donald      |   2600 |           NULL | 1999-06-21 |
+| Douglas     |   2600 |           NULL | 2000-01-13 |
+| Jennifer    |   4400 |           NULL | 1987-09-17 |
+| Pat         |   6000 |           NULL | 1997-07-17 |
+| Susan       |   6500 |           NULL | 1994-06-07 |
+| William     |   8300 |           NULL | 1994-06-07 |
++-------------+--------+----------------+------------+
+88 rows in set (0.00 sec)
+
+5) Display job Title, the difference between minimum and maximum salaries for jobs with max salary in the range 10000 to 20000.
+
+
+select job_title , max_salary-min_salary from jobs where max_salary between 10000 and 20000;
++---------------------------------+-----------------------+
+| job_title                       | max_salary-min_salary |
++---------------------------------+-----------------------+
+| Accounting Manager              |                  7800 |
+| Finance Manager                 |                  7800 |
+| Programmer                      |                  6000 |
+| Marketing Manager               |                  6000 |
+| Public Relations Representative |                  6000 |
+| Purchasing Manager              |                  7000 |
+| Sales Manager                   |                 10000 |
+| Sales Representative            |                  6000 |
++---------------------------------+-----------------------+
+8 rows in set (0.00 sec)
+
+
+6) Display employees where the first name or last name starts with S.
+
+
+select concat(first_name,' ',last_name) as Employee_Name from employees where first_name like's%' or last_name like 's%';
++------------------+
+| Employee_Name    |
++------------------+
+| Steven King      |
+| Ismael Sciarra   |
+| Shelli Baida     |
+| Sigal Tobias     |
+| Shanta Vollman   |
+| Steven Markle    |
+| Stephen Stiles   |
+| John Seo         |
+| Patrick Sully    |
+| Lindsey Smith    |
+| Sarath Sewall    |
+| Sundar Ande      |
+| William Smith    |
+| Sundita Kumar    |
+| Martha Sullivan  |
+| Nandita Sarchand |
+| Sarah Bell       |
+| Samuel McCain    |
+| Susan Mavris     |
+| Shelley Higgins  |
++------------------+
+20 rows in set (0.00 sec)
+
+
+7) Display details of jobs in the descending order of the title.
+
+
+select * from jobs order by job_title  desc;
++------------+---------------------------------+------------+------------+
+| job_id     | job_title                       | min_salary | max_salary |
++------------+---------------------------------+------------+------------+
+| ST_MAN     | Stock Manager                   |       5500 |       8500 |
+| ST_CLERK   | Stock Clerk                     |       2000 |       5000 |
+| SH_CLERK   | Shipping Clerk                  |       2500 |       5500 |
+| SA_REP     | Sales Representative            |       6000 |      12000 |
+| SA_MAN     | Sales Manager                   |      10000 |      20000 |
+| PU_MAN     | Purchasing Manager              |       8000 |      15000 |
+| PU_CLERK   | Purchasing Clerk                |       2500 |       5500 |
+| PR_REP     | Public Relations Representative |       4500 |      10500 |
+| AC_ACCOUNT | Public Accountant               |       4200 |       9000 |
+| IT_PROG    | Programmer                      |       4000 |      10000 |
+| AD_PRES    | President                       |      20000 |      40000 |
+| MK_REP     | Marketing Representative        |       4000 |       9000 |
+| MK_MAN     | Marketing Manager               |       9000 |      15000 |
+| HR_REP     | Human Resources Representative  |       4000 |       9000 |
+| FI_MGR     | Finance Manager                 |       8200 |      16000 |
+| AD_VP      | Administration Vice President   |      15000 |      30000 |
+| AD_ASST    | Administration Assistant        |       3000 |       6000 |
+| AC_MGR     | Accounting Manager              |       8200 |      16000 |
+| FI_ACCOUNT | Accountant                      |       4200 |       9000 |
++------------+---------------------------------+------------+------------+
+19 rows in set (0.00 sec)
+
+
+8) Display employees who joined in the month of May.
+
+
+select * from employees where date_format(hire_date,'%m')='05';
++-------------+------------+-----------+----------+--------------------+------------+----------+--------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email    | phone_int          | hire_date  | job_id   | salary | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------+--------------------+------------+----------+--------+----------------+------------+---------------+
+|         104 | Bruce      | Ernst     | BERNST   | 590.423.4568       | 1991-05-21 | IT_PROG  |   6000 |           NULL |        103 |            60 |
+|         115 | Alexander  | Khoo      | AKHOO    | 515.127.4562       | 1995-05-18 | PU_CLERK |   3100 |           NULL |        114 |            30 |
+|         122 | Payam      | Kaufling  | PKAUFLIN | 650.123.3234       | 1995-05-01 | ST_MAN   |   7900 |           NULL |        100 |            50 |
+|         174 | Ellen      | Abel      | EABEL    | 011.44.1644.429267 | 1996-05-11 | SA_REP   |  11000 |            0.3 |        149 |            80 |
+|         178 | Kimberely  | Grant     | KGRANT   | 011.44.1644.429263 | 1999-05-24 | SA_REP   |   7000 |           0.15 |        149 |          NULL |
+|         197 | Kevin      | Feeney    | KFEENEY  | 650.507.9822       | 1998-05-23 | SH_CLERK |   3000 |           NULL |        124 |            50 |
++-------------+------------+-----------+----------+--------------------+------------+----------+--------+----------------+------------+---------------+
+6 rows in set (0.00 sec)
+
+
+9) Display details of the employees where commission percentage is null and salary in the range 5000 to 10000 and department is 30.
+
+
+select * from employees where commission_pct is null and salary between 5000 and 10000 and department_id=30;
+Empty set (0.00 sec)
+
+________________________________________________________________________________________________________________________________________________________
+
+
+Join 
+
+1). Display job title, employee ID, number of days between ending date and starting date for all jobs in department 30 from job history.
+
+select j.job_title,jh.employee_id,datediff(end_date,start_date) as no_of_days from job_history jh,jobs j where jh.department_id=30;
+Empty set (0.00 sec)
+
+
+2) Display department name and manager first name.
+
+select e.first_name,d.department_name from employees e inner join departments d where e.employee_id=d.manager_id;
++------------+------------------+
+| first_name | department_name  |
++------------+------------------+
+| Jennifer   | Administration   |
+| Michael    | Marketing        |
+| Den        | Purchasing       |
+| Susan      | Human Resources  |
+| Adam       | Shipping         |
+| Alexander  | IT               |
+| Hermann    | Public Relations |
+| John       | Sales            |
+| Steven     | Executive        |
+| Nancy      | Finance          |
+| Shelley    | Accounting       |
++------------+------------------+
+11 rows in set (0.00 sec)
+
+3) Display department name, manager name, and city.
+
+select concat(employees.first_name,' ',employees.last_name) as manager_name,departments.department_name,locations.city from (locations inner join departments inner join employees) where (employees.employee_id=departments.manager_id) and (locations.location_id=departments.location_id);
++-------------------+------------------+---------------------+
+| manager_name      | department_name  | city                |
++-------------------+------------------+---------------------+
+| Jennifer Whalen   | Administration   | Seattle             |
+| Michael Hartstein | Marketing        | Toronto             |
+| Den Raphaely      | Purchasing       | Seattle             |
+| Susan Mavris      | Human Resources  | London              |
+| Adam Fripp        | Shipping         | South San Francisco |
+| Alexander Hunold  | IT               | Southlake           |
+| Hermann Baer      | Public Relations | Munich              |
+| John Russell      | Sales            | Oxford              |
+| Steven King       | Executive        | Seattle             |
+| Nancy Greenberg   | Finance          | Seattle             |
+| Shelley Higgins   | Accounting       | Seattle             |
++-------------------+------------------+---------------------+
+11 rows in set (0.00 sec)
+
+
+4) Display country name, city, and department name.
+
+
+select country_name,city,department_name from (departments d inner join locations l inner join countries c) where d.location_id=l.location_id and l.country_id=c.country_id;
++--------------------------+---------------------+----------------------+
+| country_name             | city                | department_name      |
++--------------------------+---------------------+----------------------+
+| United States of America | Seattle             | Administration       |
+| Canada                   | Toronto             | Marketing            |
+| United States of America | Seattle             | Purchasing           |
+| United Kingdom           | London              | Human Resources      |
+| United States of America | South San Francisco | Shipping             |
+| United States of America | Southlake           | IT                   |
+| Germany                  | Munich              | Public Relations     |
+| United Kingdom           | Oxford              | Sales                |
+| United States of America | Seattle             | Executive            |
+| United States of America | Seattle             | Finance              |
+| United States of America | Seattle             | Accounting           |
+| United States of America | Seattle             | Treasury             |
+| United States of America | Seattle             | Corporate Tax        |
+| United States of America | Seattle             | Control And Credit   |
+| United States of America | Seattle             | Shareholder Services |
+| United States of America | Seattle             | Benefits             |
+| United States of America | Seattle             | Manufacturing        |
+| United States of America | Seattle             | Construction         |
+| United States of America | Seattle             | Contracting          |
+| United States of America | Seattle             | Operations           |
+| United States of America | Seattle             | IT Support           |
+| United States of America | Seattle             | NOC                  |
+| United States of America | Seattle             | IT Helpdesk          |
+| United States of America | Seattle             | Government Sales     |
+| United States of America | Seattle             | Retail Sales         |
+| United States of America | Seattle             | Recruiting           |
+| United States of America | Seattle             | Payroll              |
++--------------------------+---------------------+----------------------+
+27 rows in set (0.00 sec)
+
+
+5) Display employee name and country in which he is working.
+
+select concat(e.first_name,' ',e.last_name) as employee_name,country_name from employees e,departments d,locations l,countries c where e.department_id=d.department_id and d.location_id=l.location_id and l.country_id=c.country_id;
++-------------------+--------------------------+
+| employee_name     | country_name             |
++-------------------+--------------------------+
+| Alexander Hunold  | United States of America |
+| Bruce Ernst       | United States of America |
+| David Austin      | United States of America |
+| Valli Pataballa   | United States of America |
+| Diana Lorentz     | United States of America |
+| Matthew Weiss     | United States of America |
+| Adam Fripp        | United States of America |
+| Payam Kaufling    | United States of America |
+| Shanta Vollman    | United States of America |
+| Kevin Mourgos     | United States of America |
+| Julia Nayer       | United States of America |
+| Irene Mikkilineni | United States of America |
+| James Landry      | United States of America |
+| Steven Markle     | United States of America |
+| Laura Bissot      | United States of America |
+| Mozhe Atkinson    | United States of America |
+| James Marlow      | United States of America |
+| TJ Olson          | United States of America |
+| Jason Mallin      | United States of America |
+| Michael Rogers    | United States of America |
+| Ki Gee            | United States of America |
+| Hazel Philtanker  | United States of America |
+| Renske Ladwig     | United States of America |
+| Stephen Stiles    | United States of America |
+| John Seo          | United States of America |
+| Joshua Patel      | United States of America |
+| Trenna Rajs       | United States of America |
+| Curtis Davies     | United States of America |
+| Randall Matos     | United States of America |
+| Peter Vargas      | United States of America |
+| Winston Taylor    | United States of America |
+| Jean Fleaur       | United States of America |
+| Martha Sullivan   | United States of America |
+| Girard Geoni      | United States of America |
+| Nandita Sarchand  | United States of America |
+| Alexis Bull       | United States of America |
+| Julia Dellinger   | United States of America |
+| Anthony Cabrio    | United States of America |
+| Kelly Chung       | United States of America |
+| Jennifer Dilly    | United States of America |
+| Timothy Gates     | United States of America |
+| Randall Perkins   | United States of America |
+| Sarah Bell        | United States of America |
+| Britney Everett   | United States of America |
+| Samuel McCain     | United States of America |
+| Vance Jones       | United States of America |
+| Alana Walsh       | United States of America |
+| Kevin Feeney      | United States of America |
+| Donald OConnell   | United States of America |
+| Douglas Grant     | United States of America |
+| Jennifer Whalen   | United States of America |
+| Den Raphaely      | United States of America |
+| Alexander Khoo    | United States of America |
+| Shelli Baida      | United States of America |
+| Sigal Tobias      | United States of America |
+| Guy Himuro        | United States of America |
+| Karen Colmenares  | United States of America |
+| Steven King       | United States of America |
+| Neena Kochhar     | United States of America |
+| Lex De Haan       | United States of America |
+| Nancy Greenberg   | United States of America |
+| Daniel Faviet     | United States of America |
+| John Chen         | United States of America |
+| Ismael Sciarra    | United States of America |
+| Jose Manuel Urman | United States of America |
+| Luis Popp         | United States of America |
+| Shelley Higgins   | United States of America |
+| William Gietz     | United States of America |
+| Michael Hartstein | Canada                   |
+| Pat Fay           | Canada                   |
+| Susan Mavris      | United Kingdom           |
+| John Russell      | United Kingdom           |
+| Karen Partners    | United Kingdom           |
+| Alberto Errazuriz | United Kingdom           |
+| Gerald Cambrault  | United Kingdom           |
+| Eleni Zlotkey     | United Kingdom           |
+| Peter Tucker      | United Kingdom           |
+| David Bernstein   | United Kingdom           |
+| Peter Hall        | United Kingdom           |
+| Christopher Olsen | United Kingdom           |
+| Nanette Cambrault | United Kingdom           |
+| Oliver Tuvault    | United Kingdom           |
+| Janette King      | United Kingdom           |
+| Patrick Sully     | United Kingdom           |
+| Allan McEwen      | United Kingdom           |
+| Lindsey Smith     | United Kingdom           |
+| Louise Doran      | United Kingdom           |
+| Sarath Sewall     | United Kingdom           |
+| Clara Vishney     | United Kingdom           |
+| Danielle Greene   | United Kingdom           |
+| Mattea Marvins    | United Kingdom           |
+| David Lee         | United Kingdom           |
+| Sundar Ande       | United Kingdom           |
+| Amit Banda        | United Kingdom           |
+| Lisa Ozer         | United Kingdom           |
+| Harrison Bloom    | United Kingdom           |
+| Tayler Fox        | United Kingdom           |
+| William Smith     | United Kingdom           |
+| Elizabeth Bates   | United Kingdom           |
+| Sundita Kumar     | United Kingdom           |
+| Ellen Abel        | United Kingdom           |
+| Alyssa Hutton     | United Kingdom           |
+| Jonathon Taylor   | United Kingdom           |
+| Jack Livingston   | United Kingdom           |
+| Charles Johnson   | United Kingdom           |
+| Hermann Baer      | Germany                  |
++-------------------+--------------------------+
+106 rows in set (0.00 sec)
+
+
+Functions 
+
+1. Display employees who joined in the month of May.
+
+
+select concat(employees.first_name,' ',employees.last_name) as employee_name,hire_date from employees where date_format(hire_date,'%m')='05';
++-----------------+------------+
+| employee_name   | hire_date  |
++-----------------+------------+
+| Bruce Ernst     | 1991-05-21 |
+| Alexander Khoo  | 1995-05-18 |
+| Payam Kaufling  | 1995-05-01 |
+| Ellen Abel      | 1996-05-11 |
+| Kimberely Grant | 1999-05-24 |
+| Kevin Feeney    | 1998-05-23 |
++-----------------+------------+
+6 rows in set (0.00 sec)
+
+
+2. Display first name, salary, and round the salary to thousands.
+
+
+select concat(first_name,' ',last_name) as employee_name,round(salary,-3) from employees;
++-------------------+------------------+
+| employee_name     | round(salary,-3) |
++-------------------+------------------+
+| Steven King       |            24000 |
+| Neena Kochhar     |            17000 |
+| Lex De Haan       |            17000 |
+| Alexander Hunold  |             9000 |
+| Bruce Ernst       |             6000 |
+| David Austin      |             5000 |
+| Valli Pataballa   |             5000 |
+| Diana Lorentz     |             4000 |
+| Nancy Greenberg   |            12000 |
+| Daniel Faviet     |             9000 |
+| John Chen         |             8000 |
+| Ismael Sciarra    |             8000 |
+| Jose Manuel Urman |             8000 |
+| Luis Popp         |             7000 |
+| Den Raphaely      |            11000 |
+| Alexander Khoo    |             3000 |
+| Shelli Baida      |             3000 |
+| Sigal Tobias      |             3000 |
+| Guy Himuro        |             3000 |
+| Karen Colmenares  |             2000 |
+| Matthew Weiss     |             8000 |
+| Adam Fripp        |             8000 |
+| Payam Kaufling    |             8000 |
+| Shanta Vollman    |             6000 |
+| Kevin Mourgos     |             6000 |
+| Julia Nayer       |             3000 |
+| Irene Mikkilineni |             3000 |
+| James Landry      |             2000 |
+| Steven Markle     |             2000 |
+| Laura Bissot      |             3000 |
+| Mozhe Atkinson    |             3000 |
+| James Marlow      |             2000 |
+| TJ Olson          |             2000 |
+| Jason Mallin      |             3000 |
+| Michael Rogers    |             3000 |
+| Ki Gee            |             2000 |
+| Hazel Philtanker  |             2000 |
+| Renske Ladwig     |             4000 |
+| Stephen Stiles    |             3000 |
+| John Seo          |             3000 |
+| Joshua Patel      |             2000 |
+| Trenna Rajs       |             4000 |
+| Curtis Davies     |             3000 |
+| Randall Matos     |             3000 |
+| Peter Vargas      |             2000 |
+| John Russell      |            14000 |
+| Karen Partners    |            14000 |
+| Alberto Errazuriz |            12000 |
+| Gerald Cambrault  |            11000 |
+| Eleni Zlotkey     |            10000 |
+| Peter Tucker      |            10000 |
+| David Bernstein   |            10000 |
+| Peter Hall        |             9000 |
+| Christopher Olsen |             8000 |
+| Nanette Cambrault |             8000 |
+| Oliver Tuvault    |             7000 |
+| Janette King      |            10000 |
+| Patrick Sully     |            10000 |
+| Allan McEwen      |             9000 |
+| Lindsey Smith     |             8000 |
+| Louise Doran      |             8000 |
+| Sarath Sewall     |             7000 |
+| Clara Vishney     |            10000 |
+| Danielle Greene   |            10000 |
+| Mattea Marvins    |             7000 |
+| David Lee         |             7000 |
+| Sundar Ande       |             6000 |
+| Amit Banda        |             6000 |
+| Lisa Ozer         |            12000 |
+| Harrison Bloom    |            10000 |
+| Tayler Fox        |            10000 |
+| William Smith     |             7000 |
+| Elizabeth Bates   |             7000 |
+| Sundita Kumar     |             6000 |
+| Ellen Abel        |            11000 |
+| Alyssa Hutton     |             9000 |
+| Jonathon Taylor   |             9000 |
+| Jack Livingston   |             8000 |
+| Kimberely Grant   |             7000 |
+| Charles Johnson   |             6000 |
+| Winston Taylor    |             3000 |
+| Jean Fleaur       |             3000 |
+| Martha Sullivan   |             2000 |
+| Girard Geoni      |             3000 |
+| Nandita Sarchand  |             4000 |
+| Alexis Bull       |             4000 |
+| Julia Dellinger   |             3000 |
+| Anthony Cabrio    |             3000 |
+| Kelly Chung       |             4000 |
+| Jennifer Dilly    |             4000 |
+| Timothy Gates     |             3000 |
+| Randall Perkins   |             2000 |
+| Sarah Bell        |             4000 |
+| Britney Everett   |             4000 |
+| Samuel McCain     |             3000 |
+| Vance Jones       |             3000 |
+| Alana Walsh       |             3000 |
+| Kevin Feeney      |             3000 |
+| Donald OConnell   |             3000 |
+| Douglas Grant     |             3000 |
+| Jennifer Whalen   |             4000 |
+| Michael Hartstein |            13000 |
+| Pat Fay           |             6000 |
+| Susan Mavris      |             6000 |
+| Hermann Baer      |            10000 |
+| Shelley Higgins   |            12000 |
+| William Gietz     |             8000 |
++-------------------+------------------+
+107 rows in set (0.01 sec)
+
+
+3. Display first name and date of first salary of the employees.
+
+
+select first_name,last_day(hire_date) as first_salary_date from employees;
++-------------+----------------------+
+| first_name  | date_of_first_salary |
++-------------+----------------------+
+| Steven      | 1987-06-30           |
+| Neena       | 1989-09-30           |
+| Lex         | 1993-01-31           |
+| Alexander   | 1990-01-31           |
+| Bruce       | 1991-05-31           |
+| David       | 1997-06-30           |
+| Valli       | 1998-02-28           |
+| Diana       | 1999-02-28           |
+| Nancy       | 1994-08-31           |
+| Daniel      | 1994-07-31           |
+| John        | 1997-09-30           |
+| Ismael      | 1997-08-31           |
+| Jose Manuel | 1998-03-31           |
+| Luis        | 1999-12-31           |
+| Den         | 1994-12-31           |
+| Alexander   | 1995-05-31           |
+| Shelli      | 1997-12-31           |
+| Sigal       | 1997-07-31           |
+| Guy         | 1998-11-30           |
+| Karen       | 1999-08-31           |
+| Matthew     | 1996-07-31           |
+| Adam        | 1997-04-30           |
+| Payam       | 1995-05-31           |
+| Shanta      | 1997-10-31           |
+| Kevin       | 1999-11-30           |
+| Julia       | 1997-07-31           |
+| Irene       | 1998-09-30           |
+| James       | 1999-01-31           |
+| Steven      | 2000-03-31           |
+| Laura       | 1997-08-31           |
+| Mozhe       | 1997-10-31           |
+| James       | 1997-02-28           |
+| TJ          | 1999-04-30           |
+| Jason       | 1996-06-30           |
+| Michael     | 1998-08-31           |
+| Ki          | 1999-12-31           |
+| Hazel       | 2000-02-29           |
+| Renske      | 1995-07-31           |
+| Stephen     | 1997-10-31           |
+| John        | 1998-02-28           |
+| Joshua      | 1998-04-30           |
+| Trenna      | 1995-10-31           |
+| Curtis      | 1997-01-31           |
+| Randall     | 1998-03-31           |
+| Peter       | 1998-07-31           |
+| John        | 1996-10-31           |
+| Karen       | 1997-01-31           |
+| Alberto     | 1997-03-31           |
+| Gerald      | 1999-10-31           |
+| Eleni       | 2000-01-31           |
+| Peter       | 1997-01-31           |
+| David       | 1997-03-31           |
+| Peter       | 1997-08-31           |
+| Christopher | 1998-03-31           |
+| Nanette     | 1998-12-31           |
+| Oliver      | 1999-11-30           |
+| Janette     | 1996-01-31           |
+| Patrick     | 1996-03-31           |
+| Allan       | 1996-07-31           |
+| Lindsey     | 1997-03-31           |
+| Louise      | 1997-12-31           |
+| Sarath      | 1998-11-30           |
+| Clara       | 1997-11-30           |
+| Danielle    | 1999-03-31           |
+| Mattea      | 2000-01-31           |
+| David       | 2000-02-29           |
+| Sundar      | 2000-03-31           |
+| Amit        | 2000-04-30           |
+| Lisa        | 1997-03-31           |
+| Harrison    | 1998-03-31           |
+| Tayler      | 1998-01-31           |
+| William     | 1999-02-28           |
+| Elizabeth   | 1999-03-31           |
+| Sundita     | 2000-04-30           |
+| Ellen       | 1996-05-31           |
+| Alyssa      | 1997-03-31           |
+| Jonathon    | 1998-03-31           |
+| Jack        | 1998-04-30           |
+| Kimberely   | 1999-05-31           |
+| Charles     | 2000-01-31           |
+| Winston     | 1998-01-31           |
+| Jean        | 1998-02-28           |
+| Martha      | 1999-06-30           |
+| Girard      | 2000-02-29           |
+| Nandita     | 1996-01-31           |
+| Alexis      | 1997-02-28           |
+| Julia       | 1998-06-30           |
+| Anthony     | 1999-02-28           |
+| Kelly       | 1997-06-30           |
+| Jennifer    | 1997-07-31           |
+| Timothy     | 1998-07-31           |
+| Randall     | 1999-12-31           |
+| Sarah       | 1996-02-29           |
+| Britney     | 1997-03-31           |
+| Samuel      | 1998-06-30           |
+| Vance       | 1999-03-31           |
+| Alana       | 1998-04-30           |
+| Kevin       | 1998-05-31           |
+| Donald      | 1999-06-30           |
+| Douglas     | 2000-01-31           |
+| Jennifer    | 1987-09-30           |
+| Michael     | 1996-02-29           |
+| Pat         | 1997-07-31           |
+| Susan       | 1994-06-30           |
+| Hermann     | 1994-06-30           |
+| Shelley     | 1994-06-30           |
+| William     | 1994-06-30           |
++-------------+----------------------+
+107 rows in set (0.00 sec)
+
+
+4. Display first name and experience of the employees.
+
+
+select first_name,floor(datediff(sysdate(),hire_date)/365) as Experience from employees;
++-------------+------------+
+| first_name  | Experience |
++-------------+------------+
+| Steven      |         33 |
+| Neena       |         31 |
+| Lex         |         28 |
+| Alexander   |         31 |
+| Bruce       |         29 |
+| David       |         23 |
+| Valli       |         22 |
+| Diana       |         21 |
+| Nancy       |         26 |
+| Daniel      |         26 |
+| John        |         23 |
+| Ismael      |         23 |
+| Jose Manuel |         22 |
+| Luis        |         21 |
+| Den         |         26 |
+| Alexander   |         25 |
+| Shelli      |         23 |
+| Sigal       |         23 |
+| Guy         |         22 |
+| Karen       |         21 |
+| Matthew     |         24 |
+| Adam        |         23 |
+| Payam       |         25 |
+| Shanta      |         23 |
+| Kevin       |         21 |
+| Julia       |         23 |
+| Irene       |         22 |
+| James       |         22 |
+| Steven      |         20 |
+| Laura       |         23 |
+| Mozhe       |         23 |
+| James       |         23 |
+| TJ          |         21 |
+| Jason       |         24 |
+| Michael     |         22 |
+| Ki          |         21 |
+| Hazel       |         20 |
+| Renske      |         25 |
+| Stephen     |         23 |
+| John        |         22 |
+| Joshua      |         22 |
+| Trenna      |         25 |
+| Curtis      |         23 |
+| Randall     |         22 |
+| Peter       |         22 |
+| John        |         24 |
+| Karen       |         24 |
+| Alberto     |         23 |
+| Gerald      |         21 |
+| Eleni       |         20 |
+| Peter       |         23 |
+| David       |         23 |
+| Peter       |         23 |
+| Christopher |         22 |
+| Nanette     |         22 |
+| Oliver      |         21 |
+| Janette     |         24 |
+| Patrick     |         24 |
+| Allan       |         24 |
+| Lindsey     |         23 |
+| Louise      |         23 |
+| Sarath      |         22 |
+| Clara       |         23 |
+| Danielle    |         21 |
+| Mattea      |         20 |
+| David       |         20 |
+| Sundar      |         20 |
+| Amit        |         20 |
+| Lisa        |         23 |
+| Harrison    |         22 |
+| Tayler      |         22 |
+| William     |         21 |
+| Elizabeth   |         21 |
+| Sundita     |         20 |
+| Ellen       |         24 |
+| Alyssa      |         23 |
+| Jonathon    |         22 |
+| Jack        |         22 |
+| Kimberely   |         21 |
+| Charles     |         21 |
+| Winston     |         22 |
+| Jean        |         22 |
+| Martha      |         21 |
+| Girard      |         20 |
+| Nandita     |         24 |
+| Alexis      |         23 |
+| Julia       |         22 |
+| Anthony     |         21 |
+| Kelly       |         23 |
+| Jennifer    |         23 |
+| Timothy     |         22 |
+| Randall     |         21 |
+| Sarah       |         24 |
+| Britney     |         23 |
+| Samuel      |         22 |
+| Vance       |         21 |
+| Alana       |         22 |
+| Kevin       |         22 |
+| Donald      |         21 |
+| Douglas     |         21 |
+| Jennifer    |         33 |
+| Michael     |         24 |
+| Pat         |         23 |
+| Susan       |         26 |
+| Hermann     |         26 |
+| Shelley     |         26 |
+| William     |         26 |
++-------------+------------+
+107 rows in set (0.02 sec)
+
+
+5. Display the length of first name for employees where last name contain character ‘b’ after 3rd position.
+
+
+select first_name,length(first_name),last_name from employees where INSTR(last_name,'b')>3;
++------------+--------------------+-----------+
+| first_name | length(first_name) | last_name |
++------------+--------------------+-----------+
+| Valli      |                  5 | Pataballa |
+| Nancy      |                  5 | Greenberg |
+| Gerald     |                  6 | Cambrault |
+| Nanette    |                  7 | Cambrault |
++------------+--------------------+-----------+
+4 rows in set (0.00 sec)
+
+
+6. Display first name in upper case and email address in lower case for employees where the first name and email address are same irrespective of the case.
+
+
+
+select upper(first_name),lower(email) from employees;
++-------------------+--------------+
+| upper(first_name) | lower(email) |
++-------------------+--------------+
+| STEVEN            | sking        |
+| NEENA             | nkochhar     |
+| LEX               | ldehaan      |
+| ALEXANDER         | ahunold      |
+| BRUCE             | bernst       |
+| DAVID             | daustin      |
+| VALLI             | vpatabal     |
+| DIANA             | dlorentz     |
+| NANCY             | ngreenbe     |
+| DANIEL            | dfaviet      |
+| JOHN              | jchen        |
+| ISMAEL            | isciarra     |
+| JOSE MANUEL       | jmurman      |
+| LUIS              | lpopp        |
+| DEN               | drapheal     |
+| ALEXANDER         | akhoo        |
+| SHELLI            | sbaida       |
+| SIGAL             | stobias      |
+| GUY               | ghimuro      |
+| KAREN             | kcolmena     |
+| MATTHEW           | mweiss       |
+| ADAM              | afripp       |
+| PAYAM             | pkauflin     |
+| SHANTA            | svollman     |
+| KEVIN             | kmourgos     |
+| JULIA             | jnayer       |
+| IRENE             | imikkili     |
+| JAMES             | jlandry      |
+| STEVEN            | smarkle      |
+| LAURA             | lbissot      |
+| MOZHE             | matkinso     |
+| JAMES             | jamrlow      |
+| TJ                | tjolson      |
+| JASON             | jmallin      |
+| MICHAEL           | mrogers      |
+| KI                | kgee         |
+| HAZEL             | hphiltan     |
+| RENSKE            | rladwig      |
+| STEPHEN           | sstiles      |
+| JOHN              | jseo         |
+| JOSHUA            | jpatel       |
+| TRENNA            | trajs        |
+| CURTIS            | cdavies      |
+| RANDALL           | rmatos       |
+| PETER             | pvargas      |
+| JOHN              | jrussel      |
+| KAREN             | kpartner     |
+| ALBERTO           | aerrazur     |
+| GERALD            | gcambrau     |
+| ELENI             | ezlotkey     |
+| PETER             | ptucker      |
+| DAVID             | dbernste     |
+| PETER             | phall        |
+| CHRISTOPHER       | colsen       |
+| NANETTE           | ncambrau     |
+| OLIVER            | otuvault     |
+| JANETTE           | jking        |
+| PATRICK           | psully       |
+| ALLAN             | amcewen      |
+| LINDSEY           | lsmith       |
+| LOUISE            | ldoran       |
+| SARATH            | ssewall      |
+| CLARA             | cvishney     |
+| DANIELLE          | dgreene      |
+| MATTEA            | mmarvins     |
+| DAVID             | dlee         |
+| SUNDAR            | sande        |
+| AMIT              | abanda       |
+| LISA              | lozer        |
+| HARRISON          | hbloom       |
+| TAYLER            | tfox         |
+| WILLIAM           | wsmith       |
+| ELIZABETH         | ebates       |
+| SUNDITA           | skumar       |
+| ELLEN             | eabel        |
+| ALYSSA            | ahutton      |
+| JONATHON          | jtaylor      |
+| JACK              | jlivings     |
+| KIMBERELY         | kgrant       |
+| CHARLES           | cjohnson     |
+| WINSTON           | wtaylor      |
+| JEAN              | jfleaur      |
+| MARTHA            | msulliva     |
+| GIRARD            | ggeoni       |
+| NANDITA           | nsarchan     |
+| ALEXIS            | abull        |
+| JULIA             | jdelling     |
+| ANTHONY           | acabrio      |
+| KELLY             | kchung       |
+| JENNIFER          | jdilly       |
+| TIMOTHY           | tgates       |
+| RANDALL           | rperkins     |
+| SARAH             | sbell        |
+| BRITNEY           | beverett     |
+| SAMUEL            | smccain      |
+| VANCE             | vjones       |
+| ALANA             | awalsh       |
+| KEVIN             | kfeeney      |
+| DONALD            | doconnel     |
+| DOUGLAS           | dgrant       |
+| JENNIFER          | jwhalen      |
+| MICHAEL           | mhartste     |
+| PAT               | pfay         |
+| SUSAN             | smavris      |
+| HERMANN           | hbaer        |
+| SHELLEY           | shiggins     |
+| WILLIAM           | wgietz       |
++-------------------+--------------+
+107 rows in set (0.00 sec)
+
+
+7. Display employees who joined in the current year.
+
+
+select first_name,hire_date from employees where YEAR(hire_date)=YEAR(sysdate());
+Empty set (0.01 sec)
+
+
+8. Display the number of days between system date and 1st January 1995.
+
+
+select datediff(sysdate(),'1995-01-01');
++----------------------------------+
+| datediff(sysdate(),'1995-01-01') |
++----------------------------------+
+|                             9513 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+
+
+9. Display how many employees joined in each month of the current year.
+
+select count(*),month(hire_date) from employees where YEAR(hire_date)='1997' group by month(hire_date) order by month(hire_date) asc;
++----------+------------------+
+| count(*) | month(hire_date) |
++----------+------------------+
+|        3 |                1 |
+|        2 |                2 |
+|        6 |                3 |
+|        1 |                4 |
+|        2 |                6 |
+|        4 |                7 |
+|        3 |                8 |
+|        1 |                9 |
+|        3 |               10 |
+|        1 |               11 |
+|        2 |               12 |
++----------+------------------+
+11 rows in set (0.01 sec)
+
+
+
+MySQL Aggregate function 
+
+1. Display employee ID and the date on which he ended his previous job.
+
+
+ select employee_id,end_date from job_history;
++-------------+------------+
+| employee_id | end_date   |
++-------------+------------+
+|         101 | 1993-10-27 |
+|         101 | 1997-03-15 |
+|         102 | 1998-07-24 |
+|         114 | 1999-12-31 |
+|         122 | 1999-12-31 |
+|         176 | 1998-12-31 |
+|         176 | 1999-12-31 |
+|         200 | 1993-06-17 |
+|         200 | 1998-12-31 |
+|         201 | 1999-12-19 |
++-------------+------------+
+10 rows in set (0.01 sec)
+
+
+2. Display number of employees joined after 15th of the month.
+
+
+select count(*) from employees where DAY(hire_date)>15;
++----------+
+| count(*) |
++----------+
+|       57 |
++----------+
+1 row in set (0.00 sec)
+
+
+select with Group by 
+
+3. Display the country ID and number of cities we have in the country.
+
+
+select country_id,count(*) from locations group by country_id;
++------------+----------+
+| country_id | count(*) |
++------------+----------+
+| AU         |        1 |
+| BR         |        1 |
+| CA         |        2 |
+| CH         |        2 |
+| CN         |        1 |
+| DE         |        1 |
+| IN         |        1 |
+| IT         |        2 |
+| JP         |        2 |
+| MX         |        1 |
+| NL         |        1 |
+| SG         |        1 |
+| UK         |        3 |
+| US         |        4 |
++------------+----------+
+14 rows in set (0.00 sec)
+
+
+4. Display average salary of employees in each department who have commission percentage.
+
+
+select avg(salary),commission_pct from employees where commission_pct is not null group by commission_pct;
++-------------------+----------------+
+| avg(salary)       | commission_pct |
++-------------------+----------------+
+|             14000 |            0.4 |
+| 10428.57142857143 |            0.3 |
+| 8942.857142857143 |            0.2 |
+| 9383.333333333334 |           0.25 |
+|              7640 |           0.15 |
+|              9500 |           0.35 |
+| 6483.333333333333 |            0.1 |
++-------------------+----------------+
+7 rows in set (0.00 sec)
+
+
+5. Display job ID, number of employees, sum of salary, and difference between highest salary and lowest salary of the employees of the job.
+
+
+select job_id,count(employee_id) as number_of_employees,sum(salary),(max(salary)-min(salary))from employees group by job_id;
++------------+---------------------+-------------+---------------------------+
+| job_id     | number_of_employees | sum(salary) | (max(salary)-min(salary)) |
++------------+---------------------+-------------+---------------------------+
+| AC_ACCOUNT |                   1 |        8300 |                         0 |
+| AC_MGR     |                   1 |       12000 |                         0 |
+| AD_ASST    |                   1 |        4400 |                         0 |
+| AD_PRES    |                   1 |       24000 |                         0 |
+| AD_VP      |                   2 |       34000 |                         0 |
+| FI_ACCOUNT |                   5 |       39600 |                      2100 |
+| FI_MGR     |                   1 |       12000 |                         0 |
+| HR_REP     |                   1 |        6500 |                         0 |
+| IT_PROG    |                   5 |       28800 |                      4800 |
+| MK_MAN     |                   1 |       13000 |                         0 |
+| MK_REP     |                   1 |        6000 |                         0 |
+| PR_REP     |                   1 |       10000 |                         0 |
+| PU_CLERK   |                   5 |       13900 |                       600 |
+| PU_MAN     |                   1 |       11000 |                         0 |
+| SA_MAN     |                   5 |       61000 |                      3500 |
+| SA_REP     |                  30 |      250500 |                      5400 |
+| SH_CLERK   |                  20 |       64300 |                      1700 |
+| ST_CLERK   |                  20 |       55700 |                      1500 |
+| ST_MAN     |                   5 |       36400 |                      2400 |
++------------+---------------------+-------------+---------------------------+
+19 rows in set (0.00 sec)
+
+
+6. Display job ID for jobs with average salary more than 10000.
+
+
+select job_id,avg(salary) from employees group by job_id having avg(salary)>10000;
++---------+-------------+
+| job_id  | avg(salary) |
++---------+-------------+
+| AC_MGR  |       12000 |
+| AD_PRES |       24000 |
+| AD_VP   |       17000 |
+| FI_MGR  |       12000 |
+| MK_MAN  |       13000 |
+| PU_MAN  |       11000 |
+| SA_MAN  |       12200 |
++---------+-------------+
+7 rows in set (0.00 sec)
+
+
+7. Display years in which more than 10 employees joined.
+
+
+select date_format(hire_date,'%Y') as Years,count(employee_id) as No_of_Employees_Joined from employees group by date_format(hire_date,'%Y') having count(employee_id) > 10;
++-------+------------------------+
+| Years | No_of_Employees_Joined |
++-------+------------------------+
+| 1997  |                     28 |
+| 1998  |                     23 |
+| 1999  |                     18 |
+| 2000  |                     11 |
++-------+------------------------+
+4 rows in set (0.00 sec)
+
+
+8. Display departments in which more than five employees have commission percentage.
+
+
+select department_id,count(employee_id) from employees where commission_pct is not null group by department_id having count(employee_id)>5;
++---------------+--------------------+
+| department_id | count(employee_id) |
++---------------+--------------------+
+|            80 |                 34 |
++---------------+--------------------+
+1 row in set (0.00 sec)
+
+
+9. Display department name and number of employees in the department.
+
+
+select department_name,count(employee_id) from employees inner join departments where employees.department_id=departments.department_id group by departments.department_name;
++------------------+--------------------+
+| department_name  | count(employee_id) |
++------------------+--------------------+
+| Administration   |                  1 |
+| Marketing        |                  2 |
+| Purchasing       |                  6 |
+| Human Resources  |                  1 |
+| Shipping         |                 45 |
+| IT               |                  5 |
+| Public Relations |                  1 |
+| Sales            |                 34 |
+| Executive        |                  3 |
+| Finance          |                  6 |
+| Accounting       |                  2 |
++------------------+--------------------+
+11 rows in set (0.01 sec)
+
+
+10. Display employee ID for employees who did more than one job in the past.
+
+
+select employee_id from job_history group by employee_id having count(employee_id)>1;
++-------------+
+| employee_id |
++-------------+
+|         101 |
+|         176 |
+|         200 |
++-------------+
+3 rows in set (0.00 sec)
+
+
