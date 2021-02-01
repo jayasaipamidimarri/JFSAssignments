@@ -28,7 +28,7 @@ Result 		g_total > 70
 Result>=90 selected else try next time. 
 
 
-### [Java Assignment 2](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Employeesalary.java)
+### [Java Assignment 2](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Employeesalary.java)
                   -Employeesalary.java
 
 Take n number records through keyboards as Id,Name,Salary,Desg  
@@ -48,7 +48,7 @@ Else
  
 Id, name, salary( grossSalary +bonus ) and desg 
 
-### [Java Assignment 3](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Employeesalaryf.java)
+### [Java Assignment 3](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Employeesalaryf.java)
                     -Employeesalaryf.java
 
 Create EmployeeDetails class with 4 instance array variables. 
@@ -84,7 +84,7 @@ Else
  
 Id, name, salary( grossSalary +bonus ) and desg 
 
-### [Java Assignment 4](https://github.com/PJ81149/JFSAssignments/blob/main/Java/Employeetest.java)
+### [Java Assignment 4](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Employeetest.java)
 		    -Employeetest.java
 		    
 Manager / Programmer is a Employee
