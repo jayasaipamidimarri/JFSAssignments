@@ -187,6 +187,22 @@ StudentTest
 		std[i].display();
 	}
 
+### [Assignment 6:]()
+
+First Change 
+
+Create user-defined exception 
+
+1.	MinimumAccountBalance
+2.	InValidAccountNumber 	(Transfer, Withdraw, deposit) 
+
+Second Changes :  	you have to use package concept. 
+		Account		 bean package 
+		AccountInitialization,  service package 
+		Bank 			 service package 
+		MyBank 		 service package 
+		BankTest 		 main / test package 
+
 ###  [Assignment 7](https://github.com/jayasaipamidimarri/JFSAssignments/blob/main/Java/Stringsort.java)
 Take n number of names through keywords and display those names in ascending or descending order. (Ignore case sensitive). 
 String names[]={“Raj”,”ravi”,”Akash”,”ajay”};
